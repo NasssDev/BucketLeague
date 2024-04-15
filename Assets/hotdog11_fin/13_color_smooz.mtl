@@ -1,0 +1,22 @@
+newmtl None
+Ns 100.000
+d 1.00000
+illum 2
+Kd 1.00000 1.00000 1.00000
+Ka 0.00000 0.00000 0.00000
+Ks 1.00000 1.00000 1.00000
+Ke 0.00000e+0 0.00000e+0 0.00000e+0
+map_Kd 13_color_smooz_diffuse.tga
+map_Ks 13_color_smooz_roughness.tga
+map_bump 13_color_smooz_normal_map.tga
+newmtl Material
+Ns 100.000
+d 1.00000
+illum 2
+Kd 1.00000 1.00000 1.00000
+Ka 0.00000 0.00000 0.00000
+Ks 1.00000 1.00000 1.00000
+Ke 0.00000e+0 0.00000e+0 0.00000e+0
+map_Kd 13_color_smooz_diffuse.tga
+map_Ks 13_color_smooz_roughness.tga
+map_bump 13_color_smooz_normal_map.tga
