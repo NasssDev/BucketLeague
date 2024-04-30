@@ -29,24 +29,9 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
 
-        // Téléportation
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            TeleportToPosition(new Vector3(tpX, tpY, tpZ));
-        }
+
+
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        // Vérifie si le personnage touche le sol
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
-    }
 
-    void TeleportToPosition(Vector3 position)
-    {
-        transform.position = position;
-    }
 }
