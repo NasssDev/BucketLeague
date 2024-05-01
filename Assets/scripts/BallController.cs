@@ -16,6 +16,7 @@ public class BallController : MonoBehaviour
             // Jouer le son de sifflet
             whistleSound.Play();
 
+            Debug.Log("But marqué ! La balle va respawn dans 3 secondes.");
             // Respawn de la balle après 3 secondes
             StartCoroutine(RespawnBall());
         }
@@ -24,7 +25,9 @@ public class BallController : MonoBehaviour
     private IEnumerator RespawnBall()
     {
         yield return new WaitForSeconds(3f);
-        transform.position = centerSpawnPoint.position;
+        transform.parent.position = centerSpawnPoint.position;
+        
+        Debug.Log("La balle a respawn");
         // Réinitialiser la vitesse ou d'autres propriétés de la balle au besoin
     }
 }
