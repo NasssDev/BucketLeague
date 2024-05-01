@@ -1,14 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 5f; // Vitesse de déplacement du personnage
-    public float jumpForce = 10f; // Force du saut
-    private bool isGrounded; // Variable pour vérifier si le personnage touche le sol
-    public float tpX = 2f;
-    public float tpY = 1f;
-    public float tpZ = -2f;
-
+    public float Speed;
+    public float RotationSpeed;
 
     void Update()
     {
@@ -17,21 +14,18 @@ public class PlayerController : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         // Calcul du mouvement en fonction des inputs
-        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * speed * Time.deltaTime;
+        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * Speed * Time.deltaTime;
 
         // Appliquer le mouvement horizontal au personnage
-        transform.Translate(movement, Space.World);
+        transform.Translate(movement, Space.Self); // Utilisation de Space.Self
 
-        // Saut
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKey(KeyCode.Q))
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
+            GetComponent<Transform>().Rotate(new Vector3(0, -RotationSpeed * Time.deltaTime, 0), Space.Self);
         }
-
-
-
+        if (Input.GetKey(KeyCode.E))
+        {
+            GetComponent<Transform>().Rotate(new Vector3(0, RotationSpeed * Time.deltaTime, 0), Space.Self);
+        }
     }
-
-
 }
